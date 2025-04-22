@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEVERAGEAI LLC - Enterprise AI Consulting</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D2B53',
+                        secondary: '#4361EE',
+                        accent: '#FF6B6B',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    zIndex: {
+                        '60': '60',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary font-poppins">LEVERAGEAI</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#solutions" class="text-gray-600 hover:text-secondary">Solutions</a>
+                    <a href="#benefits" class="text-gray-600 hover:text-secondary">Benefits</a>
+                    <a href="#features" class="text-gray-600 hover:text-secondary">Features</a>
+                    <button class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition duration-300">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary to-secondary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white font-poppins mb-6">
+                    Transforming Enterprises Through AI Innovation
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mb-8">
+                    Empower your organization with cutting-edge AI solutions that drive growth, efficiency, and innovation across your business operations.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="toggleModal('contactModal')" class="bg-accent text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition duration-300 font-semibold">
+                        Request Demo
+                    </button>
+                    <button id="downloadGuideBtn" onclick="handleDownloadClick()" class="bg-white text-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300 font-semibold">
+                        Download Guide
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-600 mb-12 text-lg">Trusted by innovative enterprises worldwide</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+                <img src="https://placehold.co/200x80/1D2B53/FFFFFF/png?text=ENTERPRISE" alt="Client Logo" class="h-12 opacity-50 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/200x80/4361EE/FFFFFF/png?text=TECH+CO" alt="Client Logo" class="h-12 opacity-50 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/200x80/1D2B53/FFFFFF/png?text=GLOBAL" alt="Client Logo" class="h-12 opacity-50 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/200x80/4361EE/FFFFFF/png?text=CORP" alt="Client Logo" class="h-12 opacity-50 hover:opacity-100 transition-opacity">
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary font-poppins text-center mb-12">
+                Enterprise AI Solutions
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-gray-50">
+                    <div class="text-secondary mb-4 transform transition-transform duration-300 group-hover:scale-110">
+                        <i class="fas fa-brain text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-primary">AI Strategy Consulting</h3>
+                    <p class="text-gray-600">Develop a comprehensive AI roadmap tailored to your business objectives and industry challenges.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-gray-50">
+                    <div class="text-secondary mb-4 transform transition-transform duration-300 group-hover:scale-110">
+                        <i class="fas fa-cogs text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-primary">Implementation & Integration</h3>
+                    <p class="text-gray-600">Seamlessly integrate AI solutions into your existing infrastructure with our expert implementation services.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-gray-50">
+                    <div class="text-secondary mb-4 transform transition-transform duration-300 group-hover:scale-110">
+                        <i class="fas fa-chart-line text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-primary">AI-Driven Analytics</h3>
+                    <p class="text-gray-600">Transform your data into actionable insights with our advanced analytics and AI capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary font-poppins text-center mb-12">
+                Why Choose LEVERAGEAI
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 rounded-lg hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="text-5xl font-bold text-secondary mb-3 transform transition-all duration-500 hover:scale-110">95%</div>
+                    <p class="text-gray-600 font-medium">Accuracy Rate</p>
+                </div>
+                <div class="text-center p-6 rounded-lg hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="text-5xl font-bold text-secondary mb-3 transform transition-all duration-500 hover:scale-110">500+</div>
+                    <p class="text-gray-600 font-medium">Projects Delivered</p>
+                </div>
+                <div class="text-center p-6 rounded-lg hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="text-5xl font-bold text-secondary mb-3 transform transition-all duration-500 hover:scale-110">40%</div>
+                    <p class="text-gray-600 font-medium">Cost Reduction</p>
+                </div>
+                <div class="text-center p-6 rounded-lg hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="text-5xl font-bold text-secondary mb-3 transform transition-all duration-500 hover:scale-110">24/7</div>
+                    <p class="text-gray-600 font-medium">Expert Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary font-poppins text-center mb-12">
+                Enterprise-Grade Features
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-secondary bg-blue-50 p-4 rounded-full transform transition-all duration-300 group-hover:scale-110 hover:rotate-12">
+                                <i class="fas fa-robot text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3 text-primary">Custom AI Solutions</h3>
+                                <p class="text-gray-600 leading-relaxed">Tailored AI solutions designed specifically for your enterprise needs and objectives.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-secondary bg-blue-50 p-4 rounded-full transform transition-all duration-300 group-hover:scale-110 hover:rotate-12">
+                                <i class="fas fa-server text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3 text-primary">Scalable Infrastructure</h3>
+                                <p class="text-gray-600 leading-relaxed">Enterprise-grade infrastructure that grows with your business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-secondary bg-blue-50 p-4 rounded-full transform transition-all duration-300 group-hover:scale-110 hover:rotate-12">
+                                <i class="fas fa-shield-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3 text-primary">Advanced Security</h3>
+                                <p class="text-gray-600 leading-relaxed">State-of-the-art security measures to protect your data and AI systems.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="animate-float">
+                        <img src="https://placehold.co/600x400/1D2B53/FFFFFF/png?text=AI+Solutions" alt="Features" class="rounded-xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-br from-primary to-secondary relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://placehold.co/1920x1080/1D2B53/FFFFFF/png?text=AI+Pattern')] opacity-10"></div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-white font-poppins mb-8 leading-tight">
+                Ready to Transform Your Enterprise?
+            </h2>
+            <p class="text-gray-200 mb-12 max-w-2xl mx-auto text-lg">
+                Join the leading enterprises that are already leveraging our AI solutions to drive growth and innovation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button onclick="toggleModal('contactModal')" class="bg-accent text-white px-10 py-4 rounded-lg hover:bg-opacity-90 transition duration-300 font-semibold text-lg transform hover:scale-105">
+                    Schedule a Demo
+                </button>
+                <button onclick="toggleModal('contactModal')" class="bg-white text-primary px-10 py-4 rounded-lg hover:bg-gray-100 transition duration-300 font-semibold text-lg transform hover:scale-105">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4 font-poppins">LEVERAGEAI</h3>
+                    <p class="text-sm">Transforming enterprises through innovative AI solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Solutions</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-accent">AI Strategy</a></li>
+                        <li><a href="#" class="hover:text-accent">Implementation</a></li>
+                        <li><a href="#" class="hover:text-accent">Analytics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-accent">About Us</a></li>
+                        <li><a href="#" class="hover:text-accent">Careers</a></li>
+                        <li><a href="#" class="hover:text-accent">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-accent"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-accent"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-accent"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+                <p>&copy; 2024 LEVERAGEAI LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 relative">
+            <button onclick="toggleModal('contactModal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-primary mb-6 font-poppins">Get in Touch</h3>
+            <form onsubmit="handleFormSubmit(event, 'contact')" class="space-y-4">
+                <div>
+                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input type="text" name="fullName" id="fullName" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="John Doe">
+                    <div class="text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" name="phone" id="phone" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="+1 (555) 000-0000">
+                    <div class="text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" name="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="john@example.com">
+                    <div class="text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+                <button type="submit" class="w-full bg-accent text-white py-3 rounded-lg hover:bg-opacity-90 transition duration-300 font-semibold mt-6">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
