@@ -64,7 +64,7 @@ function hideError(input) {
 }
 
 // Form submission
-function handleFormSubmit(event, formType) {
+async function handleFormSubmit(event, formType) {
     event.preventDefault();
     const form = event.target;
     
@@ -79,36 +79,50 @@ function handleFormSubmit(event, formType) {
         type: formType
     };
     
-    // Here you would typically send the form data to your server
-    console.log('Form submitted:', formData);
-    
-    // Mark form as submitted
-    hasSubmittedForm = true;
-    
-    // Update download button style if form was submitted
-    const downloadBtn = document.getElementById('downloadGuideBtn');
-    if (downloadBtn) {
-        downloadBtn.classList.remove('bg-white', 'text-primary', 'hover:bg-gray-100');
-        downloadBtn.classList.add('bg-black', 'text-gray-400', 'cursor-pointer');
+    try {
+        // Here you would typically send the form data to your server
+        console.log('Form submitted:', formData);
+        
+        // Mark form as submitted
+        hasSubmittedForm = true;
+        localStorage.setItem('hasSubmittedForm', 'true');
+        
+        // Update all download buttons
+        updateDownloadButtons();
+        
+        // Close modal
+        toggleModal('contactModal');
+        
+        // Show success message
+        showToast('Thank you! We\'ll be in touch soon.');
+        
+        // If this was a guide download request, redirect to the guide
+        if (formType === 'guide') {
+            setTimeout(() => {
+                window.location.href = 'https://app.mindstudio.ai/share/public/asset/5J6JKvdqaNpm1ehSLzuzjQ';
+            }, 1000);
+        }
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        showToast('An error occurred. Please try again.', 'error');
     }
-    
-    // Show success message and handle specific actions
-    if (formType === 'guide') {
-        // Redirect to the guide
-        window.location.href = 'https://app.mindstudio.ai/share/public/asset/5J6JKvdqaNpm1ehSLzuzjQ';
-    }
-    
-    // Close modal
-    toggleModal('contactModal');
-    
-    // Show success toast
-    showToast('Thank you! We\'ll be in touch soon.');
+}
+
+// Update all download buttons on the page
+function updateDownloadButtons() {
+    const downloadButtons = document.querySelectorAll('[id^="downloadGuideBtn"]');
+    downloadButtons.forEach(btn => {
+        btn.classList.remove('bg-white', 'text-primary', 'hover:bg-gray-100');
+        btn.classList.add('bg-black', 'text-gray-400');
+        btn.onclick = () => window.location.href = 'https://app.mindstudio.ai/share/public/asset/5J6JKvdqaNpm1ehSLzuzjQ';
+    });
 }
 
 // Toast notification
-function showToast(message) {
+function showToast(message, type = 'success') {
     const toast = document.createElement('div');
-    toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 translate-y-0';
+    const bgColor = type === 'success' ? 'bg-green-500' : 'bg-red-500';
+    toast.className = `fixed bottom-4 right-4 ${bgColor} text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 translate-y-0 z-60`;
     toast.textContent = message;
     
     document.body.appendChild(toast);
@@ -124,9 +138,18 @@ function showToast(message) {
 
 // Handle download button click
 function handleDownloadClick() {
-    if (hasSubmittedForm) {
+    const hasSubmitted = localStorage.getItem('hasSubmittedForm') === 'true';
+    if (hasSubmitted) {
         window.location.href = 'https://app.mindstudio.ai/share/public/asset/5J6JKvdqaNpm1ehSLzuzjQ';
     } else {
         toggleModal('contactModal');
     }
 }
+
+// Initialize download buttons state on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const hasSubmitted = localStorage.getItem('hasSubmittedForm') === 'true';
+    if (hasSubmitted) {
+        updateDownloadButtons();
+    }
+});
